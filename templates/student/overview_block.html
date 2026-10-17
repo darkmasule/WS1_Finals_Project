@@ -1,0 +1,175 @@
+{% extends "dashboard_base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/overview.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div class="cards_container">
+  <div class="left_column_group" style="display: flex; flex-direction: column; gap: 24px;">
+    <div class="subjects_list">
+      <h3>Subjects List</h3>
+      {% if subjects %}
+        {% for subject in subjects %}
+        <div class="card">
+          <h4>{{ subject.code }}: {{ subject.name }}</h4>
+          <div class="subject_details">
+            <div class="info">
+              <p>Schedule:</p>
+              <p>Time:</p>
+              <p>Room:</p>
+              <p>Student:</p>
+            </div>
+            <div class="info_data">
+              <p>{{ subject.schedule }}</p>
+              <p>{{ subject.time }}</p>
+              <p>{{ subject.room }}</p>
+              <p>{{ subject.students }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="card">
+          <h4>WS1: Web Systems and Technologies</h4>
+          <div class="subject_details">
+            <div class="info" style="display: flex; flex-direction: column; gap: 4px;">
+              <p>Schedule:</p>
+              <p>Time:</p>
+              <p>Room:</p>
+              <p>Student:</p>
+            </div>
+            <div class="info_data" style="display: flex; flex-direction: column; gap: 4px;">
+              <p>Monday / Thursday</p>
+              <p>12:00 PM - 1:30 AM</p>
+              <p>B4 - 52</p>
+              <p>50</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>CC03: Intermediate Programming</h4>
+          <div class="subject_details">
+            <div class="info" style="display: flex; flex-direction: column; gap: 4px;">
+              <p>Schedule:</p>
+              <p>Time:</p>
+              <p>Room:</p>
+              <p>Student:</p>
+            </div>
+            <div class="info_data" style="display: flex; flex-direction: column; gap: 4px;">
+              <p>Monday / Thursday</p>
+              <p>10:30 PM - 12:00 AM</p>
+              <p>B4 - 52</p>
+              <p>50</p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="upcoming_schedule">
+      <h3>Upcoming Schedule</h3>
+      {% if upcoming_schedules %}
+        {% for upcoming in upcoming_schedules %}
+        <div class="card">
+          <h4>{{ upcoming.code }}: {{ upcoming.name }}</h4>
+          <div class="subject_details">
+            <div class="info_data">
+              <p>{{ upcoming.schedule }} &nbsp;&nbsp;&nbsp; {{ upcoming.time }} &nbsp;&nbsp;&nbsp; {{ upcoming.room }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="card">
+          <h4>WS1: Web Systems and Technologies</h4>
+          <div class="subject_details">
+            <div class="info_data">
+              <p>Tomorrow &nbsp;&nbsp;&nbsp; 12:00 PM &nbsp;&nbsp;&nbsp; B2-52</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h4>CC03: Intermediate Programming</h4>
+          <div class="subject_details">
+            <div class="info_data">
+              <p>Tomorrow &nbsp;&nbsp;&nbsp; 10:30 AM &nbsp;&nbsp;&nbsp; B2-52</p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="right_column_group" style="display: flex; flex-direction: column; gap: 24px;">
+    <div class="subjects_list">
+      <h3>Recent Scan History</h3>
+      <div class="card" style="padding: 16px;">
+        <ul class="history-list">
+          {% if scan_history %}
+            {% for scan in scan_history %}
+            <li>
+              <span class="badge-check">✓</span>
+              {{ scan.subject }} | <span class="status-present">{{ scan.status }}</span> | {{ scan.time }}
+            </li>
+            {% endfor %}
+          {% else %}
+            <li><span class="badge-check">✓</span> WS1 - Web Systems | <span class="status-present">Present</span> | Oct. 05, 2026 12:00 PM</li>
+            <li><span class="badge-check">✓</span> WS1 - Web Systems | <span class="status-present">Present</span> | Oct. 05, 2026 12:00 PM</li>
+            <li><span class="badge-check">✓</span> WS1 - Web Systems | <span class="status-present">Present</span> | Oct. 05, 2026 12:00 PM</li>
+            <li><span class="badge-check">✓</span> WS1 - Web Systems | <span class="status-present">Present</span> | Oct. 05, 2026 12:00 PM</li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="upcoming_schedule">
+      <h3>Daily Schedule & Live Status</h3>
+      <div class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+        <div class="date-navigator">
+          <button>&lt;</button>
+          <span>Today (Mon, Oct 25)</span>
+          <button>&gt;</button>
+        </div>
+        
+        <div class="live-session-card">
+          <div class="session-header">
+            <strong>WEB SYSTEMS TECHNOLOGY</strong>
+            <span class="badge-live">LIVE SESSION</span>
+          </div>
+          <p class="session-time" style="font-size: 0.95rem; color: #4a5568; margin-bottom: 8px;">(12:00 NN - 01:30 PM)</p>
+          <button class="btn-qr">VIEW MY QR CODE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="qrModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="closeQrModal">&times;</button>
+      <div class="qr-modal-header">
+        <h3>My Attendance QR Code</h3>
+        <p>Scan this code at the classroom terminal for instant check-in.</p>
+      </div>
+
+      <div class="qr-code-container">
+        <div class="qr-placeholder-box">
+          <i class="fas fa-qrcode"></i>
+          <img src="{{ url_for('static', filename='images/sample_qr.png') }}" alt="Student QR Code" id="studentQRImg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="fallback-qr-text" style="display:none;">
+            <span>[QR Code Loading...]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="qr-student-info">
+        <span class="student-name">Jessie Aldana</span>
+        <span class="student-id">ID: CA123456789</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

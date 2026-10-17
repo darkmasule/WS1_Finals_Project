@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../static/styles/global.css" />
+    <link rel="stylesheet" href="../static/styles/dashboard_base.css" />
+
+    {% block styles %} {% endblock %}
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <!--* Dashboard Container -->
+    <div class="dashboard" id="dashboard">
+      <!--! Navigation Section -->
+
+      <nav>
+        <div class="top_ctas">
+          <div class="logo_container">
+            <img src="../static/assets/images/icct_logo.png" alt="icct_logo" />
+          </div>
+
+          <div class="button_container">
+            <button type="button" id="sidebar_toggle">
+              <img
+                src="../static/assets/icons/nav_icon.svg"
+                alt="navigation_icon"
+              />
+            </button>
+          </div>
+        </div>
+
+        <div class="middle_ctas">
+          <a href="/dashboard">
+            <img
+              src="../static/assets/icons/overview_icon.svg"
+              alt="overview_icon"
+            />
+            <p>Overview</p>
+          </a>
+
+          <a href="/attendance">
+            <img
+              src="../static/assets/icons/attendance_icon.svg"
+              alt="attendance_icon"
+            />
+            <p>Attendance</p>
+          </a>
+
+          <a href="#">
+            <img
+              src="../static/assets/icons/history_icon.svg"
+              alt="history_icon"
+            />
+            <p>Records</p>
+          </a>
+        </div>
+
+        <div class="bottom_ctas">
+          <a href="#">
+            <img
+              src="../static/assets/icons/settings_icon.svg"
+              alt="settings_icon"
+            />
+            <p>Account Settings</p>
+          </a>
+
+          <a href="/">
+            <img src="../static/assets/icons/exit_icon.svg" alt="exit_icon" />
+            <p>Return Home</p>
+          </a>
+        </div>
+      </nav>
+
+      <div class="main_content">
+        <header>
+          <h1>Overview</h1>
+          <div class="side_cta_container">
+            <a href="/">Welcome, {{ first_name }}</a>
+            <div class="profile_container">
+              <img
+                src="../static/assets/images/caca.png"
+                alt="profile_icon.png"
+              />
+            </div>
+          </div>
+        </header>
+
+        <main>{% block content %} {% endblock %}</main>
+      </div>
+
+    <script src="../static/scripts/dashboard_base.js"></script>
+  </body>
+</html>

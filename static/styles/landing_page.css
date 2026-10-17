@@ -1,0 +1,446 @@
+/*! Header Section */
+header {
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  /*! Navigation Section */
+
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+
+    background-color: var(--primary-color);
+    height: auto;
+    padding: 0 98px;
+
+    div {
+      height: 72px;
+      align-items: center;
+    }
+
+    .logo_container {
+      display: flex;
+      justify-content: start;
+      padding: 12px 0 12px 24px;
+
+      img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .main_cta_container {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 0 24px;
+    }
+
+    .side_cta_container {
+      display: flex;
+      justify-content: end;
+      gap: 16px;
+
+      .profile_container {
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        overflow: hidden;
+        outline: 2px solid var(--surface-color);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--surface-color);
+      font-family: var(--alt-font);
+      font-weight: 300;
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+
+  /** Hero Container */
+
+  .hero_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 754px;
+
+    /** Grid 1 */
+
+    .headline {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+
+      padding: 0 64px;
+
+      .description {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+
+        gap: 4px;
+
+        h1 {
+          font-family: var(--header-font);
+          font-size: 4rem;
+          font-weight: 600;
+          line-height: 1;
+          color: var(--main-text-color);
+        }
+      }
+
+      .hero_cta_container {
+        display: flex;
+        flex-direction: column;
+
+        gap: 12px;
+        padding: 64px 0;
+
+        .cta_container {
+          display: flex;
+
+          gap: 16px;
+
+          button {
+            height: 52px;
+            width: 160px;
+            box-shadow: 3px 3px 0 #00000040;
+            border: none;
+            font-family: var(--alt-font);
+            font-size: 1.25rem;
+            color: var(--surface-color);
+          }
+
+          #register_cta {
+            background: var(--secondary-color);
+            border-radius: 6px 6px 0 6px;
+          }
+
+          #login_cta,
+          #form_register_cta,
+          #form_login_cta {
+            background: var(--primary-color);
+            border-radius: 0 6px 6px 6px;
+          }
+        }
+      }
+
+      p {
+        font-family: var(--main-font);
+        font-size: 1.5rem;
+        color: var(--muted-text-color);
+      }
+
+      /** Registration Form */
+
+      #registration_form,
+      #login_form {
+        grid-template-columns: 1fr 1fr;
+
+        height: 760px;
+        width: 960px;
+        border: none;
+        border-radius: 12px;
+
+        align-self: center;
+        justify-self: center;
+
+        &[open] {
+          display: grid;
+        }
+
+        .form_container {
+          display: grid;
+          grid-template-rows: auto 1fr auto;
+          gap: 32px;
+          padding: 64px 32px;
+          background: #dee8f3;
+
+          p {
+            font-family: var(--header-font);
+            color: var(--main-text-color);
+            text-align: center;
+          }
+
+          form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .form_group_container {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 6px;
+            }
+
+            .form_group,
+            .form_single {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+            }
+
+            input,
+            select {
+              font-family: var(--main-font);
+              font-size: 1rem;
+              box-shadow: inset 0 0 0 1px var(--border-color);
+              height: 44px;
+              width: 100%;
+              border: none;
+              border-radius: 4px;
+              padding: 0 8px;
+
+              &:focus {
+                outline: none;
+              }
+            }
+
+            label {
+              font-family: var(--main-font);
+              font-size: 0.75rem;
+              color: var(--muted-text-color);
+            }
+          }
+
+          .submission_cta,
+          .submit_login_cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+
+            button {
+              height: 52px;
+              width: 160px;
+              box-shadow: 3px 3px 0 #00000040;
+              border: none;
+              font-family: var(--alt-font);
+              font-size: 1.25rem;
+              color: var(--surface-color);
+              background: var(--secondary-color);
+              border-radius: 6px 6px 0 6px;
+            }
+          }
+        }
+
+        .side_header {
+          display: grid;
+          grid-template-rows: 1fr auto auto;
+          background: var(--background-color);
+          padding: 64px 32px;
+          gap: 12px;
+
+          .side_header_description {
+            gap: 16px;
+            h3 {
+              font-family: var(--header-font);
+              font-size: 2.6rem;
+              font-weight: 600;
+              line-height: 1.1;
+            }
+          }
+
+          #no_account {
+            text-align: center;
+          }
+
+          #no_account,
+          .side_header_description {
+            font-family: var(--alt-font);
+            font-size: 1.4rem;
+            word-spacing: -0.5%;
+          }
+
+          .login_form_cta,
+          .registration_form_cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+          }
+        }
+      }
+
+      /** Log In Form */
+    }
+
+    /** Grid 2 */
+
+    .showcase {
+      grid-column: 2;
+
+      background: var(--surface-color);
+      box-shadow: inset 4px 2px 8px #00000040;
+    }
+  }
+}
+
+/*! Main Section */
+
+main {
+  display: grid;
+  grid-template-rows: auto 1fr;
+
+  /** Features Showcase */
+
+  .features {
+    display: grid;
+    grid-template-rows: auto;
+    background: var(--tertiary-color);
+    padding: 64px 98px 98px 98px;
+    gap: 64px;
+
+    .features_cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+
+      .card_container {
+        display: grid;
+        grid-template-columns: auto;
+        background-color: var(--surface-color);
+        padding: 24px 32px 44px 32px;
+        gap: 24px;
+        box-shadow: 3px 4px 0 #00000040;
+
+        .icon_container {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          background-color: var(--border-color);
+          border-radius: 12px;
+          align-items: center;
+
+          .icon {
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            padding: 8px;
+            background-color: var(--highlight-color);
+            border-radius: 12px;
+          }
+
+          h3 {
+            font-family: var(--alt-font);
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-align: center;
+            color: var(--secondary-color);
+          }
+        }
+
+        p {
+          font-family: var(--main-font);
+          font-size: 1.5rem;
+          text-align: justify;
+          color: var(--muted-text-color);
+        }
+      }
+
+      .card_1 {
+        border-radius: 12px 0 12px 12px;
+      }
+
+      .card_2 {
+        border-radius: 12px 12px 0 0;
+      }
+
+      .card_3 {
+        border-radius: 0 12px 12px 12px;
+      }
+    }
+  }
+
+  /** Description */
+
+  .feature_description,
+  .hiw_description {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    h2 {
+      font-family: var(--header-font);
+      font-size: 3rem;
+      font-weight: 500;
+      color: var(--main-text-color);
+    }
+
+    p {
+      font-family: var(--main-font);
+      font-size: 1.5rem;
+      text-align: justify;
+      color: var(--main-text-color);
+    }
+  }
+
+  /** Description 2 */
+
+  .hiw_description_container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 98px;
+    gap: 44px;
+  }
+
+  .hiw_card_container {
+    background-color: var(--surface-color);
+    box-shadow: inset 4px 2px 8px #00000040;
+    height: 500px;
+    width: 500px;
+  }
+}
+
+/*! Footer Section */
+
+footer {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  background-color: var(--surface-color);
+
+  /** Credits Description */
+
+  .credits_description {
+    padding: 64px;
+
+    p {
+      font-family: var(--alt-font);
+      font-size: 1.5rem;
+      text-align: justify;
+      color: var(--muted-text-color);
+    }
+  }
+
+  /** Members List */
+
+  .members_list {
+    display: flex;
+    padding: 0 32px;
+    background-color: var(--tertiary-color);
+    justify-content: start;
+    align-items: center;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      gap: 12px;
+
+      li {
+        font-family: var(--alt-font);
+        font-size: 1.25rem;
+        color: var(--main-text-color);
+      }
+    }
+  }
+}
