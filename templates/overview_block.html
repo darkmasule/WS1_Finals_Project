@@ -144,30 +144,32 @@
       </div>
     </div>
   </div>
+</div>
 
 
-  <div id="qrModal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close" id="closeQrModal">&times;</button>
-      <div class="qr-modal-header">
-        <h3>My Attendance QR Code</h3>
-        <p>Scan this code at the classroom terminal for instant check-in.</p>
-      </div>
 
-      <div class="qr-code-container">
-        <div class="qr-placeholder-box">
-          <i class="fas fa-qrcode"></i>
-          <img src="{{ url_for('static', filename='images/sample_qr.png') }}" alt="Student QR Code" id="studentQRImg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-          <div class="fallback-qr-text" style="display:none;">
-            <span>[QR Code Loading...]</span>
-          </div>
+
+<div id="qrModal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" id="closeQrModal">&times;</button>
+    <div class="qr-modal-header">
+      <h3>My Attendance QR Code</h3>
+      <p>Scan this code at the classroom terminal for instant check-in.</p>
+    </div>
+
+    <div class="qr-code-container">
+      <div class="qr-placeholder-box">
+        <i class="fas fa-qrcode"></i>
+        <img src="{{ url_for('static', filename='images/sample_qr.png') }}" alt="Student QR Code" id="studentQRImg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="fallback-qr-text" style="display:none;">
+          <span>[QR Code Loading...]</span>
         </div>
       </div>
+    </div>
 
-      <div class="qr-student-info">
-        <span class="student-name">Jessie Aldana</span>
-        <span class="student-id">ID: CA123456789</span>
-      </div>
+    <div class="qr-student-info">
+      <span class="student-name">Jessie Aldana</span>
+      <span class="student-id">ID: CA123456789</span>
     </div>
   </div>
 </div>

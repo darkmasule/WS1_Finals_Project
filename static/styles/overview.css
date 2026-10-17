@@ -53,11 +53,6 @@
   }
 }
 
-
-
-
-
-
 .dashboard-container {
     display: flex;
     height: 100vh;
@@ -226,11 +221,6 @@
     }
 }
 
-
-
-
-
-
 .modal-overlay {
     display: none; 
     position: fixed;
@@ -330,7 +320,6 @@
     to { transform: scale(1); opacity: 1; }
 }
 
-
 @media screen and (max-width: 1024px) {
     .dashboard-grid,
     .overview-container {
@@ -350,8 +339,6 @@
       height: 150px;
     }
 }
-
-
 
 
 

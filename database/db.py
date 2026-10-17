@@ -1,12 +1,16 @@
 import os
+from dotenv import load_dotenv
 from pymongo import MongoClient
 
-# TODO Enter this first in terminal (root directory) if not set yet:
-# $env:MONGO_URI = "mongodb+srv://felipejrnoriel_db_user:aqwkTLilxErXraRO@fp-db.8nhcswv.mongodb.net/"
+load_dotenv()
+
 MONGO_URI = os.getenv("MONGO_URI")
+print(
+  "-> DEBUG in db.py: MONGO_URI is:", repr(MONGO_URI)
+)
 
 if not MONGO_URI:
-    raise ValueError("Please set MONGO_URI first. (from README.txt)")
+  raise ValueError("Please set MONGO_URI first. (from README.txt)")
 
 client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
 
