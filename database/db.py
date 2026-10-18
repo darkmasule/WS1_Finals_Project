@@ -10,5 +10,7 @@ if not MONGO_URI:
 
 client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
 
-db = client["collected_data"]
-collection = db["users"]
+db = client["users_data"]
+
+students_collection = db["students"]
+professors_collection = db["professors"]

@@ -104,35 +104,49 @@
                       />
                     </div>
 
-                    <div class="form_single">
-                      <label for="program">Program:</label>
-                      <select name="program" id="program" required>
-                        <option value="" disabled selected></option>
-                        <option value="subject1">SUB1: Subject 1</option>
-                        <option value="subject2">SUB2: Subject 2</option>
-                        <option value="subject3">SUB3: Subject 3</option>
-                      </select>
+                    <div class="form_checkbox">
+                      <label for="is_student">
+                        <input
+                          type="checkbox"
+                          name="is_student"
+                          id="is_student"
+                          value="true"
+                        />
+                        Register as a student?
+                      </label>
                     </div>
 
-                    <div class="form_group_container">
-                      <div class="form_group">
-                        <label for="year_level">Year Level:</label>
-                        <select name="year_level" id="year_level" required>
+                    <div id="student_fields">
+                      <div class="form_single">
+                        <label for="program">Program:</label>
+                        <select name="program" id="program" required>
                           <option value="" disabled selected></option>
-                          <option value="year_one">1st year</option>
-                          <option value="year_two">2nd year</option>
-                          <option value="irregular">Irregular</option>
+                          <option value="subject1">SUB1: Subject 1</option>
+                          <option value="subject2">SUB2: Subject 2</option>
+                          <option value="subject3">SUB3: Subject 3</option>
                         </select>
                       </div>
 
-                      <div class="form_group">
-                        <label for="section">Section:</label>
-                        <select name="section" id="section" required>
-                          <option value="" disabled selected></option>
-                          <option value="section1">Section 1</option>
-                          <option value="section2">Section 2</option>
-                          <option value="section3">Section 3</option>
-                        </select>
+                      <div class="form_group_container">
+                        <div class="form_group">
+                          <label for="year_level">Year Level:</label>
+                          <select name="year_level" id="year_level" required>
+                            <option value="" disabled selected></option>
+                            <option value="year_one">1st year</option>
+                            <option value="year_two">2nd year</option>
+                            <option value="irregular">Irregular</option>
+                          </select>
+                        </div>
+
+                        <div class="form_group">
+                          <label for="section">Section:</label>
+                          <select name="section" id="section" required>
+                            <option value="" disabled selected></option>
+                            <option value="section1">Section 1</option>
+                            <option value="section2">Section 2</option>
+                            <option value="section3">Section 3</option>
+                          </select>
+                        </div>
                       </div>
                     </div>
 
@@ -154,7 +168,7 @@
 
                   <div class="submission_cta">
                     <button type="submit" form="registration_data">
-                      Sign In
+                      Sign Up
                     </button>
                   </div>
                 </div>
