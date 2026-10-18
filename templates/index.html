@@ -69,7 +69,7 @@
 
               <dialog id="registration_form">
                 <div class="form_container">
-                  <p>Registration Form</p>
+                  <h3>Registration Form</h3>
 
                   <div class="form_message" id="form_message"></div>
 
@@ -86,6 +86,7 @@
                           type="text"
                           id="first_name"
                           name="first_name"
+                          placeholder="JUAN"
                           required
                         />
                       </div>
@@ -96,6 +97,7 @@
                           type="text"
                           id="last_name"
                           name="last_name"
+                          placeholder="DELA CRUZ"
                           required
                         />
                       </div>
@@ -107,7 +109,7 @@
                         type="text"
                         id="id_number"
                         name="id_number"
-                        placeholder="Enter your ID number."
+                        placeholder="e.g., CA202205945"
                         required
                       />
                     </div>
@@ -148,8 +150,8 @@
                           <label for="year_level">Year Level:</label>
                           <select name="year_level" id="year_level" required>
                             <option value="" disabled selected></option>
-                            <option value="year_one">1st year</option>
-                            <option value="year_two">2nd year</option>
+                            <option value="year_one">1st</option>
+                            <option value="year_two">2nd</option>
                             <option value="irregular">Irregular</option>
                           </select>
                         </div>
@@ -168,7 +170,13 @@
 
                     <div class="form_single">
                       <label for="email">Email:</label>
-                      <input type="email" id="email" name="email" required />
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="e.g., juandelacruz@gmail.com"
+                        required
+                      />
                     </div>
 
                     <div class="form_single">
@@ -179,7 +187,7 @@
                         name="password"
                         minlength="8"
                         maxlength="64"
-                        placeholder="Enter chosen password."
+                        placeholder="At least 8 characters."
                         required
                       />
                     </div>
@@ -213,7 +221,7 @@
 
               <dialog id="login_form">
                 <div class="form_container">
-                  <p>Log In Form</p>
+                  <h3>Log In Form</h3>
 
                   <div class="form_message" id="login_message"></div>
 
