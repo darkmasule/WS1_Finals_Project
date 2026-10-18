@@ -53,6 +53,9 @@
   }
 }
 
+
+
+
 .dashboard-container {
     display: flex;
     height: 100vh;
@@ -128,6 +131,9 @@
     }
 }
 
+
+
+
 .history-list {
     list-style: none;
 
@@ -139,6 +145,7 @@
         align-items: center;
     }
 }
+
 
 .badge-check {
     display: inline-block;
@@ -180,6 +187,8 @@
     }
 }
 
+
+
 .live-session-card {
     background: #f8fafc;
     border: 1px solid #cbd5e1;
@@ -220,6 +229,9 @@
         }
     }
 }
+
+
+
 
 .modal-overlay {
     display: none; 
@@ -314,6 +326,9 @@
         }
     }
 }
+
+
+
 
 @keyframes modalPop {
     from { transform: scale(0.9); opacity: 0; }
