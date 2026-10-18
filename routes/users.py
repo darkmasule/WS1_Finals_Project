@@ -99,3 +99,7 @@ def student_profile():
 @users.route("/settings")
 def settings():
     return render_template("settings.html")
+
+@users.route("/student/overview")
+def student_overview():
+    return render_template("student/overview.html")
