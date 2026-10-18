@@ -71,7 +71,14 @@
                 <div class="form_container">
                   <p>Registration Form</p>
 
-                  <form id="registration_data" action="/submit" method="POST">
+                  <div class="form_message" id="form_message"></div>
+
+                  <form
+                    id="registration_data"
+                    action="/submit"
+                    method="POST"
+                    autocomplete="off"
+                  >
                     <div class="form_group_container">
                       <div class="form_group">
                         <label for="first_name">First name:</label>
@@ -100,6 +107,7 @@
                         type="text"
                         id="id_number"
                         name="id_number"
+                        placeholder="Enter your ID number."
                         required
                       />
                     </div>
@@ -120,10 +128,18 @@
                       <div class="form_single">
                         <label for="program">Program:</label>
                         <select name="program" id="program" required>
-                          <option value="" disabled selected></option>
-                          <option value="subject1">SUB1: Subject 1</option>
-                          <option value="subject2">SUB2: Subject 2</option>
-                          <option value="subject3">SUB3: Subject 3</option>
+                          <option value="" disabled selected>
+                            Select an option below:
+                          </option>
+                          <option value="subject1">
+                            BSCS: Bachelor of Science in Computer Science
+                          </option>
+                          <option value="subject2">
+                            BSIT: Bachelor of Science in Information Technology
+                          </option>
+                          <option value="subject3">
+                            BSCRIM: Bachelor of Science in Criminology
+                          </option>
                         </select>
                       </div>
 
@@ -161,6 +177,9 @@
                         type="password"
                         id="password"
                         name="password"
+                        minlength="8"
+                        maxlength="64"
+                        placeholder="Enter chosen password."
                         required
                       />
                     </div>
@@ -196,7 +215,14 @@
                 <div class="form_container">
                   <p>Log In Form</p>
 
-                  <form id="login_data" action="/login" method="POST">
+                  <div class="form_message" id="login_message"></div>
+
+                  <form
+                    id="login_data"
+                    action="/login"
+                    method="POST"
+                    autocomplete="off"
+                  >
                     <div class="form_single">
                       <label for="login_id_number">ID no:</label>
                       <input

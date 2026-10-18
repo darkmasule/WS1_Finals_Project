@@ -1,4 +1,12 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for
+from flask import (
+    Blueprint,
+    render_template,
+    request,
+    session,
+    redirect,
+    url_for,
+    jsonify,
+)
 from database.db import students_collection, professors_collection
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -15,10 +23,27 @@ def home():
 def submit():
     first_name = request.form.get("first_name").strip().upper()
     last_name = request.form.get("last_name").strip().upper()
-    id_number = request.form.get("id_number").strip()
+    id_number = request.form.get("id_number").strip().upper()
     is_student = request.form.get("is_student") == "true"
-    email = request.form.get("email").strip()
+    email = request.form.get("email").strip().lower()
     password = generate_password_hash(request.form.get("password"))
+
+    existing_student = students_collection.find_one({"id_number": id_number})
+    existing_professor = professors_collection.find_one({"id_number": id_number})
+    existing_student_email = students_collection.find_one({"email": email})
+    existing_professor_email = professors_collection.find_one({"email": email})
+
+    if existing_student or existing_professor:
+        return (
+            jsonify({"success": False, "message": "ID number is already registered."}),
+            409,
+        )
+
+    if existing_student_email or existing_professor_email:
+        return (
+            jsonify({"success": False, "message": "Email is already registered."}),
+            409,
+        )
 
     user = {
         "first_name": first_name,
@@ -33,19 +58,20 @@ def submit():
         user["year_level"] = request.form.get("year_level")
         user["section"] = request.form.get("section")
 
-        students_collection.insert_one(user)
-
+        result = students_collection.insert_one(user)
+        session["role"] = "student"
     else:
-        professors_collection.insert_one(user)
+        result = professors_collection.insert_one(user)
+        session["role"] = "professor"
 
-    return """ <h1>Submitted Successfully!</h1>
-    <a href="/">Back to Form</a> """
+    session["user_id"] = str(result.inserted_id)
+    return jsonify({"success": True, "message": "Success! Directing to overview."})
 
 
 #! Login Form
 @users.route("/login", methods=["POST"])
 def login():
-    id_number = request.form.get("id_number", "").strip()
+    id_number = request.form.get("id_number", "").strip().upper()
     password = request.form.get("password", "")
 
     user = students_collection.find_one({"id_number": id_number})
@@ -60,9 +86,11 @@ def login():
         session["id_number"] = user["id_number"]
         session["role"] = role
 
-        return redirect(url_for("users.dashboard"))
+        return jsonify(
+            {"success": True, "message": "Login successful! Redirecting to overview."}
+        )
 
-    return "Invalid ID number or password"
+    return jsonify({"success": False, "message": "Invalid ID number or password."}), 401
 
 
 #! Dashboard
@@ -99,6 +127,7 @@ def student_profile():
 @users.route("/settings")
 def settings():
     return render_template("settings.html")
+
 
 @users.route("/student/overview")
 def student_overview():

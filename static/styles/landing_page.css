@@ -161,6 +161,7 @@ header {
 
         .form_container {
           display: grid;
+          position: relative;
           grid-template-rows: auto 1fr auto;
           gap: 32px;
           padding: 64px 32px;
@@ -170,6 +171,44 @@ header {
             font-family: var(--header-font);
             color: var(--main-text-color);
             text-align: center;
+          }
+
+          .form_message {
+            position: absolute;
+
+            bottom: 124px;
+            /* top: 64px;
+            left: 0;
+            right: 0;
+            margin-inline: auto; */
+
+            align-self: end;
+            justify-self: center;
+
+            visibility: hidden;
+            z-index: 10;
+
+            width: max-content;
+            max-width: 90%;
+            /* margin-inline: auto; */
+            padding: 12px 16px;
+            border-radius: 8px;
+
+            font-family: var(--main-font);
+
+            &.success {
+              background-color: #d4edda;
+              color: #155724;
+            }
+
+            &.error {
+              background-color: #f8d7da;
+              color: #721c24;
+            }
+
+            &.show {
+              visibility: visible;
+            }
           }
 
           form {
@@ -190,10 +229,12 @@ header {
               gap: 4px;
             }
 
-            .form_checkbox label {
-              display: flex;
-              align-items: center;
-              gap: 8px;
+            .form_checkbox {
+              label {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+              }
             }
 
             input[type="text"],
@@ -216,8 +257,13 @@ header {
             }
 
             input[name="first_name"],
-            input[name="last_name"] {
+            input[name="last_name"],
+            input[name="id_number"] {
               text-transform: uppercase;
+            }
+
+            input[name="id_number"]::placeholder {
+              text-transform: none;
             }
 
             input[type="checkbox"] {
@@ -233,7 +279,10 @@ header {
           }
 
           #student_fields {
+            display: flex;
+            flex-direction: column;
             opacity: 0.5;
+            gap: 16px;
 
             select,
             input {
@@ -280,6 +329,7 @@ header {
 
           .side_header_description {
             gap: 16px;
+
             h3 {
               font-family: var(--header-font);
               font-size: 2.6rem;
