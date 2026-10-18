@@ -1,10 +1,4 @@
-#wip {
-  font-size: 4rem;
-  text-align: start;
-  padding: 64px;
-}
-
-/* TODO body {
+body {
     display: grid;
     grid-template-columns: 36px 1fr;
     grid-template-rows: 44px 1fr;
@@ -59,13 +53,14 @@
 
 header { 
     grid-area: 1 / 2 / 2 / 5; 
-    height: 44px;
-    width: 95.9vw;
+    height: 72px;
+    width: 93.9vw;
     background: #DEE8F3;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 6px 50px 6px 14px;
+    box-sizing: border-box;
 
     h2 {
         margin: 0;
@@ -151,7 +146,7 @@ main {
         box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
         border-radius: 8px;
         background: #FFFF;
-        height: 460px;
+        height: auto;
 
         h2 {
             border: none;
@@ -324,7 +319,7 @@ main {
                     .rowhead {
                         color: var(--muted-text-color);
                         font-size: 16px;
-                        width: 60px;
+                        width: 62px;
                     }
                 }
             }
@@ -416,4 +411,4 @@ main {
             }
         }
     }
-} */
+}
