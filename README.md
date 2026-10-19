@@ -34,6 +34,9 @@
 <ul>
   <li>.\.venv\Scripts\Activate.ps1</li>
 </ul>
+
+**Run if restricted:<br />
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass**
 <br />
 
 **STEP 4**
