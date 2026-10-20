@@ -1,8 +1,18 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
 /** Dashboard Container */
 
 .dashboard {
   display: grid;
   grid-template-columns: 72px 1fr;
+
+  height: 100vh;
+  overflow: hidden;
 
   nav {
     display: grid;
@@ -62,7 +72,10 @@
 
   .main_content {
     display: grid;
-    grid-template-rows: 72px 1fr;
+    grid-template-rows: 72px minmax(0, 1fr);
+    height: 100vh;
+    overflow: hidden;
+    min-height: 0;
 
     header {
       display: grid;
@@ -77,6 +90,8 @@
       }
 
       .side_cta_container {
+        height: 100%;
+
         display: flex;
         justify-content: end;
         gap: 16px;

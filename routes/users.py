@@ -7,8 +7,9 @@ from flask import (
     url_for,
     jsonify,
 )
-from database.db import students_collection, professors_collection
+from database.db import students_collection, professors_collection, subjects_collection
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime, timedelta
 
 users = Blueprint("users", __name__)
 
@@ -108,7 +109,74 @@ def dashboard():
     else:
         user = professors_collection.find_one({"_id": user_id})
 
-    return render_template("overview_block.html", first_name=user["first_name"])
+    subjects = list(subjects_collection.find())
+
+    days = {
+        "Monday": 0,
+        "Tuesday": 1,
+        "Wednesday": 2,
+        "Thursday": 3,
+        "Friday": 4,
+        "Saturday": 5,
+        "Sunday": 6,
+    }
+
+    now = datetime.now()
+
+    def get_next_class(subject):
+        subject_day = days.get(subject.get("schedule"))
+
+        if subject_day is None:
+            return datetime.max
+
+        try:
+            subject_time = datetime.strptime(subject.get("time", ""), "%H:%M").time()
+        except ValueError:
+            return datetime.max
+
+        days_until = (subject_day - now.weekday()) % 7
+
+        next_class = datetime.combine(
+            now.date() + timedelta(days=days_until), subject_time
+        )
+
+        if next_class <= now:
+            next_class += timedelta(days=7)
+
+        return next_class
+
+    upcoming_subjects = sorted(subjects, key=get_next_class)
+
+    return render_template(
+        "overview_block.html",
+        first_name=user["first_name"],
+        page_title="Overview",
+        subjects=subjects,
+        upcoming_subjects=upcoming_subjects,
+        now=now,
+    )
+
+
+# TODO Add subjects testing
+@users.route("/testing_subjects", methods=["POST"])
+def testing_subjects():
+    subject = {
+        "subject_code": request.form.get("subject_code", "").strip().upper(),
+        "subject_name": request.form.get("subject_name", "").strip(),
+        "schedule": request.form.get("schedule", "").strip(),
+        "time": request.form.get("time", "").strip(),
+        "room": request.form.get("room", "").strip(),
+        "student_count": int(request.form.get("student_count", 0)),
+    }
+
+    subjects_collection.insert_one(subject)
+
+    return redirect(url_for("users.dashboard"))
+
+
+@users.route("/subjects_route")
+def subjects_route():
+    return render_template("test_add_subjects.html")
 
 
 @users.route("/attendance")
