@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/styles/addsubject.css">
+    <link rel="stylesheet" href="../static/styles/global.css">
+</head>
+
+<body>
+    <div class="addsubject">
+        <div>
+            <h3>Add Subject</h3>
+            <button id="close">X</button>
+        </div>
+
+        <div class="form">
+            <div>
+                <label for="subcode">Subject Code:</label>
+                <input type="text" id="subcode" name="subcode" placeholder="e.g. SUB1">
+            </div>
+
+            <div>
+                <label for="subname">Subject Name:</label>
+                <input type="text" id="subname" name="subname" placeholder="Introduction to Computing">
+            </div>
+
+            <div>
+                <label for="schedule">Schedule:</label>
+                <select name="schedule" id="schedule">
+                    <option value="" hidden>Select a day:</option>
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tueday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thurday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="satursday">Satursday</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time">
+            </div>
+
+            <div>
+                <label for="room">Room:</label>
+                <input type="text" id="room" name="room" placeholder="e.g. Room 101">
+            </div>
+
+            <div>
+                <label for="count">Student Count:</label>
+                <input type="number" id="count" name="count" placeholder="e.g. 35">
+            </div>
+
+            <div>
+                <button type="submit" id="submit">Add Subject</button>
+            </div>
+
+        </div>
+</body>
+
+</html>
