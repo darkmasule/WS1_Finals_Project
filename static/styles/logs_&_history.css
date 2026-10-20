@@ -162,13 +162,8 @@ main {
             text-align: left;
             font-size: 16px;
             font-weight: 500;
-            letter-spacing: 0.02em;
             text-transform: uppercase;
             color: #3b78b8;
-
-            :first-child {
-                padding-left: 33px;
-            }
 
             :nth-child(n+4) {
                 text-align: center;
@@ -177,21 +172,19 @@ main {
 
         tr {
             display: grid;
-            grid-template-columns: 185fr 136fr 85fr 50fr 132fr;
+            grid-template-columns: 170px 150px 130px 100px 110px;
             align-items: center;
+            column-gap: 150px;
             justify-content: center;
         }
 
         td {
             font-size: 18px;
             text-align: left;
-
-            :first-child {
-                padding-left: 33px;
-            }
         }
 
         thead {
+            
             tr {
                 padding-bottom: 8px;
                 border-bottom: 1px solid #777;
@@ -209,6 +202,11 @@ main {
 
             tr {
                 height: 24px;
+                margin-bottom: 8px;
+
+                :first-child {
+                    left: 40px;
+                }
 
                 .late, .absent, .present, :last-child {
                     display: grid;
@@ -222,29 +220,29 @@ main {
 
                 .late {
                     width: 98px;
-                    height: 18px; 
+                    height: 22px; 
                     background: #ffe17a; 
                     color: #7a5b00; 
                 }
 
                 .absent { 
                     width: 98px;
-                    height: 18px; 
+                    height: 22px; 
                     background: #ff6b6b; 
                     color: #fff; 
                 }
 
                 .present { 
                     width: 98px;
-                    height: 18px; 
+                    height: 22px; 
                     background: #7df7b5; 
                     color: #1f7a4d; 
                 }
 
                 :last-child {
                     width: 98px;
-                    height: 18px;
-                    font-size: 8px;
+                    height: 22px;
+                    font-size: 10px;
                     background: #afc9e8;
                     border: 1px solid #7fa3cf;
                     color: #333;
