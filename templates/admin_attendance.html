@@ -19,25 +19,59 @@
             </ul>
         </aside>
 
-
-
-
         <main class="main-content">
             <header class="top-bar">
                 <h1>Attendance Logs</h1>
                 <span class="admin-badge">Administrator</span>
             </header>
 
-
-            
             <section class="metrics-grid">
                 <div class="metric-card" style="grid-column: span 3;">
                     <h3>Real-time QR Scan Feed</h3>
                     <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">
-                        Incoming session logs and timestamps will stream here.
+                        Incoming session logs and timestamps stream here in real time.
                     </p>
                 </div>
             </section>
+
+            <div class="table-container" style="margin-top: 1.5rem;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Subject</th>
+                            <th>Timestamp</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for log in logs %}
+                        <tr>
+                            <td>{{ log.student_id }}</td>
+                            <td>{{ log.student_name }}</td>
+                            <td>{{ log.subject }}</td>
+                            <td>{{ log.timestamp }}</td>
+                            <td>
+                                {% if log.status == 'Present' %}
+                                    <span class="badge badge-approved">Present</span>
+                                {% elif log.status == 'Late' %}
+                                    <span class="badge badge-pending">Late</span>
+                                {% else %}
+                                    <span class="badge badge-rejected">Absent</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 20px;" class="text-muted">
+                                No attendance records found yet.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </main>
     </div>
 </body>

@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | Student Attendance Monitoring System</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/overview.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/admin.css') }}">
 </head>
 <body>
     <div class="dashboard-container">
         <aside class="sidebar">
-            <h2>Admin Panel</h2>
+            <div class="sidebar-logo">
+                <h2>Admin Dashboard</h2>
+            </div>
             <ul class="nav-links">
-                <li><a href="/admin/overview" class="active">Dashboard</a></li>
+                <li><a href="/admin" class="active">Dashboard</a></li>
                 <li><a href="/admin/students">Manage Students</a></li>
                 <li><a href="/admin/attendance">Live Logs</a></li>
                 <li><a href="/admin/settings">Settings</a></li>
@@ -20,33 +22,111 @@
         </aside>
 
 
-
-
-
         <main class="main-content">
             <header class="top-bar">
-                <h1>System Overview</h1>
-                <span class="admin-badge">Administrator</span>
+                <h1>Admin Dashboard</h1>
+                <div class="admin-profile">
+                    <span>Welcome, Professor</span>
+                    <div class="avatar-placeholder">Admin</div>
+                </div>
             </header>
 
 
+            <div class="status-banner">
+                <span class="status-label">System Status:</span>
+                <span class="status-indicator">
+                    <span class="dot"></span> ALL SERVICES OPERATIONAL
+                </span>
+            </div>
 
-            <section class="metrics-grid">
-                <div class="metric-card">
-                    <h3>Total Present Today</h3>
-                    <p class="metric-value">142</p>
+
+
+            <div class="dashboard-grid">
+                <div class="left-column">
+                    <section class="card queue-card">
+                        <div class="card-header">
+                            <h3>Device Unbind & Hardware Reset Queue</h3>
+                        </div>
+                        <div class="queue-list">
+                            <div class="queue-item">
+                                <div class="queue-info">
+                                    <p><strong>Student:</strong> Jessie Aldana (CA123456789)</p>
+                                    <p><strong>Requested:</strong> Oct. 07, 2026 | 04:15 PM</p>
+                                </div>
+                                <div class="queue-action">
+                                    <p><strong>Reason:</strong> Phone replaced.</p>
+                                    <span class="badge badge-pending">Pending</span>
+                                </div>
+                            </div>
+                            <div class="queue-item">
+                                <div class="queue-info">
+                                    <p><strong>Student:</strong> Barney Saurus (CA123456789)</p>
+                                    <p><strong>Requested:</strong> Oct. 07, 2026 | 04:15 PM</p>
+                                </div>
+                                <div class="queue-action">
+                                    <p><strong>Reason:</strong> Phone replaced.</p>
+                                    <span class="badge badge-approved">Approved</span>
+                                </div>
+                            </div>
+                            <div class="queue-item">
+                                <div class="queue-info">
+                                    <p><strong>Student:</strong> Maria Clara (CA123456789)</p>
+                                    <p><strong>Requested:</strong> Oct. 07, 2026 | 04:15 PM</p>
+                                </div>
+                                <div class="queue-action">
+                                    <p><strong>Reason:</strong> No choice.</p>
+                                    <span class="badge badge-rejected">Rejected</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                    <section class="card quick-links-card">
+                        <div class="card-header">
+                            <h3>User Management Quick Links</h3>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="action-btn purple-btn">
+                                <span>Register New Student / Faculty</span>
+                                <span class="arrow">&gt;</span>
+                            </button>
+                            <button class="action-btn blue-btn">
+                                <span>Bulk Import CSV</span>
+                                <span class="arrow">&gt;</span>
+                            </button>
+                        </div>
+                    </section>
                 </div>
-                <div class="metric-card">
-                    <h3>Active Live Sessions</h3>
-                    <p class="metric-value">4</p>
+
+
+
+                <div class="right-column">
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <h3>TOTAL ACTIVE USERS</h3>
+                            <p class="metric-value">55</p>
+                            <span class="metric-sub">Students</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <h3>ATTENDANCE TODAY</h3>
+                            <p class="metric-value">43</p>
+                            <span class="metric-sub">Scans</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <h3>DEVICE RESET QUEUE</h3>
+                            <p class="metric-value">3</p>
+                            <span class="metric-sub">Pending Requests</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="metric-card">
-                    <h3>Pending Disputes</h3>
-                    <p class="metric-value">3</p>
-                </div>
-            </section>
+            </div>
         </main>
     </div>
 </body>
 </html>
-
