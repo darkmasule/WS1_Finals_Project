@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management | Attendance System</title>
+  <link rel="stylesheet" href="dashboard2.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#">
+      <span class="brand-icon">◆</span>
+      <span><strong>Attendance<br>Management System</strong><small>Admin Panel</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#" class="nav-item">⌂ <span>Dashboard</span></a>
+      <a href="#" class="nav-item active">♙ <span>Students</span></a>
+      <a href="#" class="nav-item">▦ <span>Attendance</span></a>
+      <a href="#" class="nav-item">▤ <span>Sessions</span></a>
+      <a href="#" class="nav-item">▥ <span>Reports</span></a>
+      <a href="#" class="nav-item">⚙ <span>Settings</span></a>
+    </nav>
+    <a href="#" class="nav-item logout">↪ <span>Logout</span></a>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <label class="global-search">
+        <span>⌕</span>
+        <input id="globalSearch" type="search" placeholder="Search students...">
+      </label>
+      <div class="admin-profile"><span class="avatar">A</span><span>Admin</span><span>⌄</span></div>
+    </header>
+
+    <section class="content">
+      <div class="page-heading">
+        <div class="heading-icon">♙</div>
+        <div>
+          <h1>Student Management</h1>
+          <p>Add, edit, or remove student accounts. Manage your class roster here.</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <article class="stat-card">
+          <div class="stat-icon blue">♙</div>
+          <div><span>Total Students</span><strong id="totalCount">—</strong></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green">✓</div>
+          <div><span>Active Students</span><strong id="activeCount">—</strong></div>
+        </article>
+      </div>
+
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+      <div class="workspace">
+        <section class="panel student-panel">
+          <div class="panel-header">
+            <h2>Student List</h2>
+            <div class="filters">
+              <label class="table-search"><span>⌕</span><input id="tableSearch" type="search" placeholder="Search by ID or name..."></label>
+              <select id="statusFilter" aria-label="Filter by status">
+                <option value="all">All Status</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>#</th><th>Student ID</th><th>Name</th><th>Course / Section</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="studentRows">
+                <tr><td colspan="6" class="empty">Loading students...</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-footer">
+            <span id="resultCount">Loading...</span>
+            <button id="refreshBtn" class="button button-quiet" type="button">↻ Refresh</button>
+          </div>
+        </section>
+
+        <aside class="panel form-panel">
+          <div class="form-title">
+            <span class="plus-bubble">+</span>
+            <div><h2 id="formHeading">Add New Student</h2><p>Fill in the details below to add a student account.</p></div>
+          </div>
+          <form id="studentForm">
+            <label for="studentId">Student ID <em>*</em></label>
+            <input id="studentId" name="student_id" placeholder="e.g. 2026-011" required maxlength="40">
+            <label for="studentName">Full Name <em>*</em></label>
+            <input id="studentName" name="name" placeholder="e.g. Juan Dela Cruz" required maxlength="100">
+            <label for="course">Course / Section</label>
+            <input id="course" name="course_section" placeholder="e.g. BSCS - 1A" maxlength="80">
+            <label for="studentStatus">Status</label>
+            <select id="studentStatus" name="status">
+              <option value="Active">● Active</option>
+              <option value="Inactive">● Inactive</option>
+            </select>
+            <div class="form-actions">
+              <button id="submitBtn" class="button button-primary" type="submit">＋ Add Student</button>
+              <button id="cancelEditBtn" class="button button-quiet" type="button" hidden>Cancel edit</button>
+            </div>
+            <p class="form-hint">Student account changes are sent to your Flask API.</p>
+          </form>
+        </aside>
+      </div>
+      <p class="page-foot">Attendance Management System · Admin</p>
+    </section>
+  </main>
+  <script src="dashboard3.js"></script>
+</body>
+</html>
