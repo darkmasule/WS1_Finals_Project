@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>program_manager</title>
+    <link rel="stylesheet" href="../static/styles/Program_manager.css">
+    <link rel="stylesheet" href="../static/styles/global.css">
+</head>
+
+<body>
+    <main class="program_manager">
+        <div class="register_program">
+
+            <div>
+                <h3>Register Program</h3>
+                <button id="close">X</button>
+            </div>
+
+            <div class="form">
+                <div>
+                    <label for="program_code">Program Code:</label>
+                    <input type="text" id="program_code" placeholder="e.g. BSCS" required>
+                </div>
+
+                <div>
+                    <label for="program_name">Program Name:</label>
+                    <input type="text" id="program_name" placeholder="e.g. Computer Science" required>
+                </div>
+
+                <div>
+                    <label for="year_level">Number of Year level:</label>
+                    <select name="yearlevel" id="year_level" required>
+                        <option value="" hidden>Select Year level</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">4th Year</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button type="submit" id="register_program">Register Program</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="register_section">
+            <div>
+                <h3>Register Section</h3>
+                <button id="close">X</button>
+            </div>
+
+            <div class="form">
+                <div>
+                    <label for="program">Program:</label>
+                    <select name="program" id="program" required>
+                        <option value="" hidden>Select Program</option>
+                        <option value="CS">BSCS - Computer Science</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="modality">Learning Modality:</label>
+                    <select name="modality" id="modality" required>
+                        <option value="" hidden>Select Modality</option>
+                        <option value="LF">Limited Face-to-Face</option>
+                        <option value="OL">Full Online</option>
+                    </select>
+                </div>
+
+
+                <div>
+                    <label for="campus">Campus:</label>
+                    <select name="campus" id="campus" required>
+                        <option value="" hidden>Select Campus</option>
+                        <option value="CA">Cainta</option>
+                        <option value="SM">San Mateo</option>
+                        <option value="CO">Cogeo</option>
+                        <option value="TY">Taytay</option>
+                        <option value="AN">Antipolo</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="current_trimester">Current Trimester Period:</label>
+                    <select name="current_trimester" id="current_trimester" required>
+                        <option value="1st">1st Trimester</option>
+                        <option value="2nd">2nd Trimester</option>
+                        <option value="3rd">3rd Trimester</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="trimester">Trimester Period:</label>
+                    <select name="trimester" id="trimester" required>
+                        <option value="1st">1st Trimester</option>
+                        <option value="2nd">2nd Trimester</option>
+                        <option value="3rd">3rd Trimester</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="session">Session:</label>
+                    <select name="session" id="session" required>
+                        <option value="morning">Morning</option>
+                        <option value="noon">Noon</option>
+                        <option value="midnight">Midnight</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="number">Section Number:</label>
+                    <input type="number" id="number" required>
+                </div>
+
+                <div>
+                    <label for="generated_section">Generated Section Name:</label>
+                    <input type="text" id="generated_section" required>
+                </div>
+
+                <div>
+                    <button id="back">Back</button>
+
+                    <button id="register_section">Register Section</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="add_subject">
+            <div>
+                <h3>Add Subject</h3>
+                <button id="close">X</button>
+            </div>
+
+            <div class="form">
+                <div>
+                    <label for="subcode">Subject Code:</label>
+                    <input type="text" id="subcode" name="subcode" placeholder="e.g. SUB1">
+                </div>
+
+                <div>
+                    <label for="subname">Subject Name:</label>
+                    <input type="text" id="subname" name="subname" placeholder="Introduction to Computing">
+                </div>
+
+                <div>
+                    <label for="schedule">Schedule:</label>
+                    <select name="schedule" id="schedule">
+                        <option value="" hidden>Select a day:</option>
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tueday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thurday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="satursday">Satursday</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time">
+                </div>
+
+                <div>
+                    <label for="room">Room:</label>
+                    <input type="text" id="room" name="room" placeholder="e.g. Room 101">
+                </div>
+
+                <div>
+                    <label for="count">Student Count:</label>
+                    <input type="number" id="count" name="count" placeholder="e.g. 35">
+                </div>
+
+                <div>
+                    <button id="back">Back</button>
+
+                    <button id="submit">Register Section</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,376 @@
+main {
+
+    .register_program {
+        display: none;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 450px;
+        height: 270px;
+        box-sizing: border-box;
+        border-radius: 8px 8px 0 8px;
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
+        background: var(--bg-color);
+
+        > :first-child { /*Title and close button*/
+            grid-area: 1 / 1 / 2 / 4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 6px;
+            border-bottom: black solid 1px;
+
+            button {
+                background-color: red;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                height: 24px;
+                width: 24px;
+                padding: 0;
+                font-weight: 500;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            h3 {
+                margin: 0;
+                font-size: 22px;
+                font-weight: 500;
+                color: var(--primary-color);
+                font-family: var(--header-font);
+            }
+        }
+
+        .form {
+            grid-area: 2 / 1 / 4 / 4;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            justify-self: center;
+            width: 400px;
+            height: 170px;
+            padding: 16px 17px 20px;
+            background: var(--highlight-color);
+            border-radius: 8px;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
+            row-gap: 8px;
+
+            label {
+                font-size: 16px;
+                margin-left: 6px;
+                font-family: var(--main-font);
+                color: var(--main-text-color);
+            }
+
+            input, select {
+                border: none;
+                border-radius: 8px;
+                width: 120px;
+                height: 26px;
+                padding: 2px 4px;
+            }
+
+            #program_code {
+                margin-left: 60px;
+            }
+
+            #program_name {
+                margin-left: 56px;
+            }
+
+            #year_level {
+                margin-left: 12px;
+            }
+            #register_program {
+                background: var(--primary-color);
+                color: var(--tertiary-color);
+                font-family: var(--alt-font);
+                border: none;
+                border-radius: 3px;
+                width: 100px;
+                height: 30px;
+                font-size: 10px;
+                font-weight: 400;
+                margin-top: 12px;
+                margin-left: 134px;
+                cursor: pointer;
+            }
+        }
+        
+    }
+
+    .register_section {
+        display: none;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        grid-template-rows: 50px 350px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 480px;
+        height: 470px;
+        box-sizing: border-box;
+        border-radius: 8px 8px 0 8px;
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
+        background: var(--bg-color);
+
+        > :first-child { /*Title and close button*/
+            grid-area: 1 / 1 / 2 / 4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 6px;
+            padding-bottom: 28px;
+            border-bottom: black solid 1px;
+
+            button {
+                background-color: red;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                height: 24px;
+                width: 24px;
+                padding: 0;
+                font-weight: 500;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            h3 {
+                margin: 0;
+                font-size: 22px;
+                font-weight: 500;
+                color: var(--primary-color);
+                font-family: var(--header-font);
+            }
+        }
+
+        .form {
+            grid-area: 2 / 1 / 4 / 4;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            justify-self: center;
+            width: 440px;
+            height: 370px;
+            padding: 16px 17px 20px;
+            background: var(--highlight-color);
+            border-radius: 8px;
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
+            row-gap: 12px;
+
+            label {
+                font-size: 16px;
+                margin-left: 6px;
+                font-family: var(--main-font);
+                color: var(--main-text-color);
+            }
+
+            input, select {
+                border: none;
+                border-radius: 8px;
+                width: 150px;
+                height: 26px;
+                padding: 2px 4px;
+            }
+
+            #program {
+                margin-left: 130px;
+            }
+
+            #modality {
+                margin-left: 60px;
+            }
+
+            #campus {
+                margin-left: 132px;
+            }
+
+            #current_trimester {
+                margin-left: 10px;
+            }
+
+            #trimester {
+                margin-left: 70px;
+            }
+
+            #session {
+                margin-left: 136px;
+            }
+
+            #number {
+                margin-left: 74px;
+            }
+
+            #generated_section {
+                margin-left: 6px;
+            }
+
+            #back {
+                background: var(--primary-color);
+                color: var(--tertiary-color);
+                font-family: var(--alt-font);
+                border: none;
+                border-radius: 3px;
+                width: 100px;
+                height: 30px;
+                font-size: 10px;
+                font-weight: 400;
+                margin-top: 12px;
+                margin-left: 4px;
+                cursor: pointer;
+            }
+
+            #register_section {
+                background: var(--primary-color);
+                color: var(--tertiary-color);
+                font-family: var(--alt-font);
+                border: none;
+                border-radius: 3px;
+                width: 100px;
+                height: 30px;
+                font-size: 10px;
+                font-weight: 400;
+                margin-top: 12px;
+                margin-left: 196px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .add_subject {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        box-sizing: border-box;
+        border-radius: 8px 8px 0 8px;
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
+        background: var(--bg-color);
+
+        > :first-child { /*Title and close button*/
+            display: flex;
+            padding: 0 4px;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2px 8px 16px 6px;
+            border-bottom: black solid 1px;
+            padding-bottom: 16px;
+
+            button {
+                background-color: red;
+                color: white;
+                border: none;
+                border-radius: 6px;
+                height: 24px;
+                width: 24px;
+                padding: 0;
+                font-weight: 500;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            h3 {
+                margin: 0;
+                font-size: 22px;
+                font-weight: 500;
+                color: var(--primary-color);
+                font-family: var(--header-font);
+            }
+        }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-self: center;
+        width: 350px;
+        height: 300px;
+        padding: 26px 17px 20px;
+        background: var(--highlight-color);
+        border-radius: 8px;
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
+        row-gap: 8px;
+
+        label {
+            font-size: 16px;
+            margin-left: 20px;
+            font-family: var(--main-font);
+            color: var(--main-text-color);
+        }
+
+        input, select {
+            border: none;
+            border-radius: 8px;
+            width: 120px;
+            height: 26px;
+        }
+
+        input {
+            padding: 4px 6px;
+        }
+    }
+
+        #subcode {
+            margin-left: 20px;
+        }
+
+        #subname {
+            margin-left: 16px;
+        }
+
+        #schedule {
+            margin-left: 50px;
+        }
+
+        #time {
+            margin-left: 82px;
+        }
+
+        #room {
+            margin-left: 76px;
+        }
+
+        #count {
+            margin-left: 10px;
+        }
+
+            #back {
+                background: var(--primary-color);
+                color: var(--tertiary-color);
+                font-family: var(--alt-font);
+                border: none;
+                border-radius: 3px;
+                width: 100px;
+                height: 30px;
+                font-size: 10px;
+                font-weight: 400;
+                margin-top: 12px;
+                margin-left: 4px;
+                cursor: pointer;
+            }
+
+            #submit {
+                background: var(--primary-color);
+                color: var(--tertiary-color);
+                font-family: var(--alt-font);
+                border: none;
+                border-radius: 3px;
+                width: 100px;
+                height: 30px;
+                font-size: 10px;
+                font-weight: 400;
+                margin-top: 12px;
+                margin-left: 106px;
+                cursor: pointer;
+            }
+    }
+}

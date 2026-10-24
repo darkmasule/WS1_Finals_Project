@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="..\static\styles\global.css" />
     <link rel="stylesheet" href="..\static\styles\landing_page.css" />
+    <link rel="stylesheet" href="../static/styles/slider-animation.css">
 
     <title>WS1 Finals Project</title>
   </head>
@@ -278,8 +279,19 @@
         <!--* Grid 2 - Cards Showcase -->
 
         <div class="showcase">
-          <div class="cards_container">
-            <!--TODO <img src="../img_use/Property 1=Default.png" alt="icon" /> -->
+          <input type="radio" name="state" id="s1" checked>
+          <input type="radio" name="state" id="s2">
+          <input type="radio" name="state" id="s3">
+
+
+          <div class="carousel">
+              <img src="../static/assets/images/attendance-image.png" alt="attendance" class="images a">
+              <img src="../static/assets/images/overview-image.png" alt="overview" class="images b">
+              <img src="../static/assets/images/record-image.png" alt="record" class="images c">
+
+              <label class="next to-s1" for="s1"></label>
+              <label class="next to-s2" for="s2"></label>
+              <label class="next to-s3" for="s3"></label>
           </div>
         </div>
       </div>

@@ -1,0 +1,115 @@
+.showcase {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* state 1: a b c */
+#s1:checked~.carousel {
+    .a {
+        --pos: 0;
+        --scale: 0.8;
+        --opacity: 0.6;
+    }
+
+    .b {
+        --pos: 1;
+        --scale: 1.25;
+        --opacity: 1;
+        z-index: 2;
+    }
+
+    .c {
+        --pos: 2;
+        --scale: 0.8;
+        --opacity: 0.6;
+    }
+}
+
+/* state 2: b c a */
+#s2:checked~.carousel {
+    .b {
+    --pos: 0;
+    --scale: 0.8;
+    --opacity: 0.6;
+    }
+
+    .c {
+    --pos: 1;
+    --scale: 1.25;
+    --opacity: 1;
+    z-index: 2;
+    }
+
+    .a {
+    --pos: 2;
+    --scale: 0.8;
+    --opacity: 0.6;
+    }
+}
+
+/* state 3: c a b */
+#s3:checked~.carousel {
+    .c {
+    --pos: 0;
+    --scale: 0.8;
+    --opacity: 0.6;
+    }
+
+    .a {
+    --pos: 1;
+    --scale: 1.25;
+    --opacity: 1;
+    z-index: 2;
+    }
+
+    .b {
+    --pos: 2;
+    --scale: 0.8;
+    --opacity: 0.6;
+    }
+}
+
+
+
+.carousel {
+    position: relative;
+    width: 850px;
+    height: 600px;
+    overflow: hidden;
+
+    .images {
+        position: absolute;
+        top: 100px;
+        right: 450px;
+        width: 450px;
+        height: 350px;
+        border: 1px solid black;
+        border-radius: 6px;
+        transform: translateX(calc(var(--pos) * 250px)) scale(var(--scale));
+        opacity: var(--opacity);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .next {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        z-index: 10;
+        pointer-events: none;
+    }
+}
+
+#s1:checked~.carousel .to-s2,
+#s2:checked~.carousel .to-s3,
+#s3:checked~.carousel .to-s1 {
+    display: block;
+    pointer-events: auto;
+}

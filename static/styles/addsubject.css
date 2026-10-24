@@ -4,7 +4,7 @@ body {
     height: 100%;
 }
 
-.addsubject {
+.add_subject {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -18,7 +18,7 @@ body {
     box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
     background: var(--bg-color);
 
-    > :first-child {
+    > :first-child { /*Title and close button*/
         display: flex;
         padding: 0 4px;
         justify-content: space-between;
