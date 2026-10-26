@@ -1,429 +1,366 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="..\static\styles\global.css" />
-    <link rel="stylesheet" href="..\static\styles\landing_page.css" />
-    <link rel="stylesheet" href="../static/styles/slider-animation.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>WS1 Finals Project</title>
-  </head>
-  <body>
-    <!--! Header Section -->
+  <link rel="stylesheet" href="..\static\styles\global.css" />
+  <link rel="stylesheet" href="..\static\styles\landing_page.css" />
+  <link rel="stylesheet" href="../static/styles/slider-animation.css">
 
-    <header>
-      <!--! Navigation Section -->
+  <title>WS1 Finals Project</title>
+</head>
 
-      <nav>
-        <div class="logo_container">
-          <img
-            src="../static/assets/images/icct_logo.png"
-            alt="icct_logo.png"
-          />
+<body>
+  <!--! Header Section -->
+
+  <header>
+    <!--! Navigation Section -->
+
+    <nav>
+      <div class="logo_container">
+        <img src="../static/assets/images/icct_logo.png" alt="icct_logo.png" />
+      </div>
+
+      <div class="main_cta_container" id="home">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#credits">Credits</a>
+      </div>
+
+      <div class="side_cta_container">
+        <a href="#home">Welcome, User</a>
+
+        <div class="profile_container">
+          <img src="../static/assets/images/caca.png" alt="profile_icon.png" />
+        </div>
+      </div>
+    </nav>
+
+    <!--* Hero Container -->
+
+    <div class="hero_container">
+      <div class="headline">
+        <!--* Grid 1 - Header Description -->
+
+        <div class="description">
+          <h1>
+            Quick Scans.<br />
+            Accurate Records.
+          </h1>
+          <p>
+            Streamline attendance tracking with fast QR code scanning and
+            accurate, organized records for every class.
+          </p>
         </div>
 
-        <div class="main_cta_container">
-          <a href="#home">Home</a>
-          <a href="#features">Features</a>
-          <a href="#credits">Credits</a>
-        </div>
+        <div class="hero_cta_container">
+          <p>Get started with your account:</p>
 
-        <div class="side_cta_container">
-          <a href="#home">Welcome, User</a>
+          <div class="cta_container">
+            <button id="register_cta">Register</button>
+            <button id="login_cta">Log In</button>
 
-          <div class="profile_container">
-            <img
-              src="../static/assets/images/caca.png"
-              alt="profile_icon.png"
-            />
-          </div>
-        </div>
-      </nav>
+            <!--* Registration Form -->
 
-      <!--* Hero Container -->
+            <dialog id="registration_form">
+              <div class="form_container">
+                <h3>Registration Form</h3>
 
-      <div class="hero_container">
-        <div class="headline">
-          <!--* Grid 1 - Header Description -->
+                <div class="form_message" id="form_message"></div>
 
-          <div class="description">
-            <h1>
-              Quick Scans.<br />
-              Accurate Records.
-            </h1>
-            <p>
-              Streamline attendance tracking with fast QR code scanning and
-              accurate, organized records for every class.
-            </p>
-          </div>
+                <form id="registration_data" action="/submit" method="POST" autocomplete="off">
+                  <div class="form_group_container">
+                    <div class="form_group">
+                      <label for="first_name">First name:</label>
+                      <input type="text" id="first_name" name="first_name" placeholder="JUAN" required />
+                    </div>
 
-          <div class="hero_cta_container">
-            <p>Get started with your account:</p>
+                    <div class="form_group">
+                      <label for="last_name">Last name:</label>
+                      <input type="text" id="last_name" name="last_name" placeholder="DELA CRUZ" required />
+                    </div>
+                  </div>
 
-            <div class="cta_container">
-              <button id="register_cta">Register</button>
-              <button id="login_cta">Log In</button>
+                  <div class="form_single">
+                    <label for="id_number">ID no:</label>
+                    <input type="text" id="id_number" name="id_number" placeholder="e.g., CA202205945" required />
+                  </div>
 
-              <!--* Registration Form -->
+                  <div class="form_checkbox">
+                    <label for="is_student">
+                      <input type="checkbox" name="is_student" id="is_student" value="true" />
+                      Register as a student?
+                    </label>
+                  </div>
 
-              <dialog id="registration_form">
-                <div class="form_container">
-                  <h3>Registration Form</h3>
+                  <div id="student_fields">
+                    <div class="form_single">
+                      <label for="program">Program:</label>
+                      <select name="program" id="program" required>
+                        <option value="" disabled selected>
+                          Select an option below:
+                        </option>
+                        <option value="subject1">
+                          BSCS: Bachelor of Science in Computer Science
+                        </option>
+                        <option value="subject2">
+                          BSIT: Bachelor of Science in Information Technology
+                        </option>
+                        <option value="subject3">
+                          BSCRIM: Bachelor of Science in Criminology
+                        </option>
+                      </select>
+                    </div>
 
-                  <div class="form_message" id="form_message"></div>
-
-                  <form
-                    id="registration_data"
-                    action="/submit"
-                    method="POST"
-                    autocomplete="off"
-                  >
                     <div class="form_group_container">
                       <div class="form_group">
-                        <label for="first_name">First name:</label>
-                        <input
-                          type="text"
-                          id="first_name"
-                          name="first_name"
-                          placeholder="JUAN"
-                          required
-                        />
-                      </div>
-
-                      <div class="form_group">
-                        <label for="last_name">Last name:</label>
-                        <input
-                          type="text"
-                          id="last_name"
-                          name="last_name"
-                          placeholder="DELA CRUZ"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div class="form_single">
-                      <label for="id_number">ID no:</label>
-                      <input
-                        type="text"
-                        id="id_number"
-                        name="id_number"
-                        placeholder="e.g., CA202205945"
-                        required
-                      />
-                    </div>
-
-                    <div class="form_checkbox">
-                      <label for="is_student">
-                        <input
-                          type="checkbox"
-                          name="is_student"
-                          id="is_student"
-                          value="true"
-                        />
-                        Register as a student?
-                      </label>
-                    </div>
-
-                    <div id="student_fields">
-                      <div class="form_single">
-                        <label for="program">Program:</label>
-                        <select name="program" id="program" required>
-                          <option value="" disabled selected>
-                            Select an option below:
-                          </option>
-                          <option value="subject1">
-                            BSCS: Bachelor of Science in Computer Science
-                          </option>
-                          <option value="subject2">
-                            BSIT: Bachelor of Science in Information Technology
-                          </option>
-                          <option value="subject3">
-                            BSCRIM: Bachelor of Science in Criminology
-                          </option>
+                        <label for="year_level">Year Level:</label>
+                        <select name="year_level" id="year_level" required>
+                          <option value="" disabled selected></option>
+                          <option value="year_one">1st</option>
+                          <option value="year_two">2nd</option>
+                          <option value="irregular">Irregular</option>
                         </select>
                       </div>
 
-                      <div class="form_group_container">
-                        <div class="form_group">
-                          <label for="year_level">Year Level:</label>
-                          <select name="year_level" id="year_level" required>
-                            <option value="" disabled selected></option>
-                            <option value="year_one">1st</option>
-                            <option value="year_two">2nd</option>
-                            <option value="irregular">Irregular</option>
-                          </select>
-                        </div>
-
-                        <div class="form_group">
-                          <label for="section">Section:</label>
-                          <select name="section" id="section" required>
-                            <option value="" disabled selected></option>
-                            <option value="section1">Section 1</option>
-                            <option value="section2">Section 2</option>
-                            <option value="section3">Section 3</option>
-                          </select>
-                        </div>
+                      <div class="form_group">
+                        <label for="section">Section:</label>
+                        <select name="section" id="section" required>
+                          <option value="" disabled selected></option>
+                          <option value="section1">Section 1</option>
+                          <option value="section2">Section 2</option>
+                          <option value="section3">Section 3</option>
+                        </select>
                       </div>
                     </div>
-
-                    <div class="form_single">
-                      <label for="email">Email:</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="e.g., juandelacruz@gmail.com"
-                        required
-                      />
-                    </div>
-
-                    <div class="form_single">
-                      <label for="password">Password:</label>
-                      <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        minlength="8"
-                        maxlength="64"
-                        placeholder="At least 8 characters."
-                        required
-                      />
-                    </div>
-                  </form>
-
-                  <div class="submission_cta">
-                    <button type="submit" form="registration_data">
-                      Sign Up
-                    </button>
                   </div>
+
+                  <div class="form_single">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="e.g., juandelacruz@gmail.com" required />
+                  </div>
+
+                  <div class="form_single">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" minlength="8" maxlength="64"
+                      placeholder="At least 8 characters." required />
+                  </div>
+                </form>
+
+                <div class="submission_cta">
+                  <button type="submit" form="registration_data">
+                    Sign Up
+                  </button>
                 </div>
-                <div class="side_header">
-                  <div class="side_header_description">
-                    <h3>Welcome!<br />Nice to meet you.</h3>
+              </div>
+              <div class="side_header">
+                <div class="side_header_description">
+                  <h3>Welcome!<br />Nice to meet you.</h3>
 
-                    <p>
-                      Create your account to get started with our attendance
-                      monitoring system.
-                    </p>
-                  </div>
-
-                  <p id="no_account">Don't have an account?</p>
-
-                  <div class="registration_form_cta">
-                    <button id="form_login_cta">Log In</button>
-                  </div>
-                </div>
-              </dialog>
-
-              <!--* Log In Form -->
-
-              <dialog id="login_form">
-                <div class="form_container">
-                  <h3>Log In Form</h3>
-
-                  <div class="form_message" id="login_message"></div>
-
-                  <form
-                    id="login_data"
-                    action="/login"
-                    method="POST"
-                    autocomplete="off"
-                  >
-                    <div class="form_single">
-                      <label for="login_id_number">ID no:</label>
-                      <input
-                        type="text"
-                        id="login_id_number"
-                        name="id_number"
-                        required
-                      />
-                    </div>
-
-                    <div class="form_single">
-                      <label for="login_password">Password:</label>
-                      <input
-                        type="password"
-                        id="login_password"
-                        name="password"
-                        required
-                      />
-                    </div>
-                  </form>
-
-                  <div class="submit_login_cta">
-                    <button type="submit" form="login_data">Log In</button>
-                  </div>
+                  <p>
+                    Create your account to get started with our attendance
+                    monitoring system.
+                  </p>
                 </div>
 
-                <div class="side_header">
-                  <div class="side_header_description">
-                    <h3>Welcome back!<br />Let's get started.</h3>
+                <p id="no_account">Don't have an account?</p>
 
-                    <p>Login your account to start managing attendances.</p>
-                  </div>
-
-                  <p id="no_account">Don't have an account?</p>
-
-                  <div class="login_form_cta">
-                    <button id="form_register_cta">Register</button>
-                  </div>
+                <div class="registration_form_cta">
+                  <button id="form_login_cta">Log In</button>
                 </div>
-              </dialog>
-            </div>
-          </div>
-        </div>
+              </div>
+            </dialog>
 
-        <!--* Grid 2 - Cards Showcase -->
+            <!--* Log In Form -->
 
-        <div class="showcase">
-          <input type="radio" name="state" id="s1" checked>
-          <input type="radio" name="state" id="s2">
-          <input type="radio" name="state" id="s3">
+            <dialog id="login_form">
+              <div class="form_container">
+                <h3>Log In Form</h3>
 
+                <div class="form_message" id="login_message"></div>
 
-          <div class="carousel">
-              <img src="../static/assets/images/attendance-image.png" alt="attendance" class="images a">
-              <img src="../static/assets/images/overview-image.png" alt="overview" class="images b">
-              <img src="../static/assets/images/record-image.png" alt="record" class="images c">
+                <form id="login_data" action="/login" method="POST" autocomplete="off">
+                  <div class="form_single">
+                    <label for="login_id_number">ID no:</label>
+                    <input type="text" id="login_id_number" name="id_number" required />
+                  </div>
 
-              <label class="next to-s1" for="s1"></label>
-              <label class="next to-s2" for="s2"></label>
-              <label class="next to-s3" for="s3"></label>
+                  <div class="form_single">
+                    <label for="login_password">Password:</label>
+                    <input type="password" id="login_password" name="password" required />
+                  </div>
+                </form>
+
+                <div class="submit_login_cta">
+                  <button type="submit" form="login_data">Log In</button>
+                </div>
+              </div>
+
+              <div class="side_header">
+                <div class="side_header_description">
+                  <h3>Welcome back!<br />Let's get started.</h3>
+
+                  <p>Login your account to start managing attendances.</p>
+                </div>
+
+                <p id="no_account">Don't have an account?</p>
+
+                <div class="login_form_cta">
+                  <button id="form_register_cta">Register</button>
+                </div>
+              </div>
+            </dialog>
           </div>
         </div>
       </div>
-    </header>
 
-    <!--! Main Section -->
+      <!--* Grid 2 - Cards Showcase -->
 
-    <main>
-      <!--* Features Showcase -->
+      <div class="showcase">
+        <input type="radio" name="state" id="s1" checked>
+        <input type="radio" name="state" id="s2">
+        <input type="radio" name="state" id="s3">
 
-      <div class="features" id="features">
-        <!--* Cards Container -->
 
-        <section class="features_cards">
-          <div class="card_container card_1">
-            <div class="icon_container">
-              <div class="icon">
-                <img
-                  src="..\static\assets\icons\attendance_icon_showcase.svg"
-                  alt="attendance_icon"
-                />
-              </div>
-              <h3>Record Attedance</h3>
-            </div>
+        <div class="carousel">
+          <img src="../static/assets/images/attendance-image.png" alt="attendance" class="images a">
+          <img src="../static/assets/images/overview-image.png" alt="overview" class="images b">
+          <img src="../static/assets/images/record-image.png" alt="record" class="images c">
 
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-
-          <div class="card_container card_2">
-            <div class="icon_container">
-              <div class="icon">
-                <img
-                  src="..\static\assets\icons\qrcode_icon_showcase.svg"
-                  alt="attendance_icon"
-                />
-              </div>
-              <h3>Check-in by Scan</h3>
-            </div>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-
-          <div class="card_container card_3">
-            <div class="icon_container">
-              <div class="icon">
-                <img
-                  src="..\static\assets\icons\history_icon_showcase.svg"
-                  alt="attendance_icon"
-                />
-              </div>
-              <h3>History of Records</h3>
-            </div>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-        </section>
-
-        <!--* Description -->
-
-        <section class="feature_description">
-          <h2>Everything You Need for Easier Attendance</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </section>
+          <label class="next to-s1" for="s1"></label>
+          <label class="next to-s2" for="s2"></label>
+          <label class="next to-s3" for="s3"></label>
+        </div>
       </div>
+    </div>
+  </header>
 
-      <!--* Description 2 -->
+  <!--! Main Section -->
 
-      <div class="hiw_description_container">
-        <section class="hiw_card_container"></section>
+<div class="return">
+  <a href="#home"><img src="../static/assets/icons/home-button.png" alt="return" id="return"></a>
+</div>
 
-        <section class="hiw_description">
-          <h2>How it works?</h2>
+  <main>
+    <!--* Features Showcase -->
+
+    <div class="features" id="features">
+
+      <!--* Cards Container -->
+
+      <section class="features_cards">
+        <div class="card_container card_1">
+          <div class="icon_container">
+            <div class="icon">
+              <img src="..\static\assets\icons\attendance_icon_showcase.svg" alt="attendance_icon" />
+            </div>
+            <h3>Record Attedance</h3>
+          </div>
+
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
+        </div>
+
+        <div class="card_container card_2">
+          <div class="icon_container">
+            <div class="icon">
+              <img src="..\static\assets\icons\qrcode_icon_showcase.svg" alt="attendance_icon" />
+            </div>
+            <h3>Check-in by Scan</h3>
+          </div>
+
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
-        </section>
-      </div>
-    </main>
+        </div>
 
-    <!--! Footer Section -->
+        <div class="card_container card_3">
+          <div class="icon_container">
+            <div class="icon">
+              <img src="..\static\assets\icons\history_icon_showcase.svg" alt="attendance_icon" />
+            </div>
+            <h3>History of Records</h3>
+          </div>
 
-    <footer>
-      <section class="credits_description" id="credits">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </section>
+
+      <!--* Description -->
+
+      <section class="feature_description">
+        <h2>Everything You Need for Easier Attendance</h2>
         <p>
-          A simple attendance management system for students and teachers,
-          developed as a school project. Thanks to everyone who helped make this
-          project possible:
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </section>
+    </div>
 
-      <section class="members_list">
-        <ul>
-          <li>Aldana, Jessie Leane</li>
-          <li>Cañete, Von Eiron</li>
-          <li>Felipe, Noriel Jr.</li>
-          <li>Oledan, Samuel Dave</li>
-        </ul>
+    <!--* Description 2 -->
+
+    <div class="hiw_description_container">
+      <section class="hiw_card_container"></section>
+
+      <section class="hiw_description">
+        <h2>How it works?</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
       </section>
-    </footer>
+    </div>
+  </main>
 
-    <script src="../static/scripts/landing_page.js"></script>
-  </body>
+  <!--! Footer Section -->
+
+  <footer>
+    <section class="credits_description" id="credits">
+      <p>
+        A simple attendance management system for students and teachers,
+        developed as a school project. Thanks to everyone who helped make this
+        project possible:
+      </p>
+    </section>
+
+    <section class="members_list">
+      <ul>
+        <li>Aldana, Jessie Leane</li>
+        <li>Cañete, Von Eiron</li>
+        <li>Felipe, Noriel Jr.</li>
+        <li>Oledan, Samuel Dave</li>
+      </ul>
+    </section>
+  </footer>
+
+  <script src="../static/scripts/landing_page.js"></script>
+</body>
+
 </html>

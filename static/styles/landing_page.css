@@ -390,6 +390,32 @@ header {
   }
 }
 
+.return {
+  position: sticky;
+  top: 700px;
+  right: 40px;
+  justify-self: end;
+  align-self: flex-end;
+  z-index: 100;
+
+  #return {
+    height: 46px;
+    width: 46px;
+    opacity: 0.5;
+  }
+
+  #return:hover {
+    opacity: 1;
+    height: 48px;
+    width: 48px;
+  }
+
+    #return:active {
+    height: 44px;
+    width: 44px;
+  }
+}
+
 /*! Main Section */
 
 main {
